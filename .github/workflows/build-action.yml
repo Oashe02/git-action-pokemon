@@ -1,0 +1,26 @@
+name: Build frontend
+on: 
+    push:
+        branches: [main]
+jobs:
+    node-setup-jobs:
+      runs-on: ubuntu-latest
+
+      defaults:
+        run:
+          working-directory: frontend
+
+      steps:
+          - name: Checkout Repo
+            uses: actions/checkout@v4
+
+          - name: Installation Node
+            uses: actions/setup-node@v4
+
+          - name: Install Npm
+            run: npm install
+
+          - name: npm run build
+            run: npm run build
+            
+        
